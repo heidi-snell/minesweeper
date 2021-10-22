@@ -1,6 +1,6 @@
-import jdk.internal.jshell.tool.resources.version;
+// import jdk.internal.jshell.tool.resources.version;
 
-public class Cell {
+public class Cell { // TODO: how to distinguish between the cells/objects that will be made?
     boolean unclicked;
     boolean flagged;
     int surroundingMines; // 0-8 = number of surrounding mines, 9 = MINE!!
@@ -16,7 +16,7 @@ public class Cell {
     public void clicked() {
         checkIfUnclicked();
         checkForFlag();
-        revealContents();
+        revealContents(location);
     }
 
     public void checkForFlag() {
@@ -27,8 +27,10 @@ public class Cell {
 
     }
 
-    public String reavealContents() {
-        if 
-
+    public String revealContents(int[] location) {
+        int row = location[0];
+        int col = location[1];
+        String value = "";
+        return value;
     }
 }
