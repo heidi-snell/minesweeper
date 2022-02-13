@@ -10,7 +10,7 @@ public class Minefield {
         this.numMines = numMines;
     }
 
-    public void newMinefield() {
+    public String[][] newMinefield() {
         String[][] minefield = new String[this.size][this.size];
         int minesPlated = 0;
         placingMines: while (minesPlated < this.numMines) {
@@ -20,8 +20,10 @@ public class Minefield {
                 continue placingMines;
             } else {
                 minefield[row][col] = "X";
+                minesPlated++;
             }
         }
+        return minefield;
     }
 
 }
