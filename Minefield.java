@@ -9,4 +9,8 @@ public class Minefield {
         this.numMines = numMines;
     }
 
+    public void newMinefield() {
+        String[][] minefield = new String[this.size][this.size];
+    }
+
 }
