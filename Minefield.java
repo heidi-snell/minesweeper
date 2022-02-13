@@ -1,10 +1,15 @@
-import java.util.Random;
+import java.util.*;
+import javafx.util.Pair;
 
 public class Minefield {
     int numMines;
+    int size;
+    Set<Pair> uncovered = ;
 
-    Minefield(int numMines) {
+    public Minefield(int size, int numMines) {
+        this.size = size;
         this.numMines = numMines;
+        this.uncovered = Minefield.emptySet();
     }
 
     static void placeBombs() {
