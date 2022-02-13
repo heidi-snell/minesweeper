@@ -55,4 +55,8 @@ public class Minefield {
         }
         return String.valueOf(numNeighborMines);
     }
+
+    public void dig(int row, int col) {
+
+    }
 }
