@@ -1,19 +1,17 @@
-
-// import java.util.*;
-import java.util.concurrent.ThreadLocalRandom;
-
+import java.util.*;
+=
 public class Minefield {
     int numMines;
     int size;
     String[][] minefield;
-    String[][] dug;
+    Set<String> dug;
 
     public Minefield(int size, int numMines) {
         this.size = size;
         this.numMines = numMines;
         this.minefield = newMinefield();
         this.assignValues();
-        String[][] dug;
+        Set<String> dug = new HashSet<String>();
     }
 
     public String[][] newMinefield() {
@@ -67,6 +65,7 @@ public class Minefield {
         } else {
             for (int r = Math.max(0, row - 1); r <= Math.min(this.size - 1, row + 1); r++) {
                 for (int c = Math.max(0, col - 1); c <= Math.min(this.size - 1, col + 1); c++) {
+                    this.dug.add(row + "," + col);
                     this.dig(r, c);
                 }
             }
@@ -74,4 +73,18 @@ public class Minefield {
         }
     }
 
+    public String[][] __str__() {
+        String[][] visibleBoard = new String[this.size][this.size];
+        for (int row = 0; row < this.size; row++) {
+            for (int col = 0; col < this.size; col++) {
+                if (this.dug.contains(row + "," + col) == true){
+                    visibleBoard[row][col] = this.minefield[row][col];
+                }
+                else {
+                    visibleBoard[row][col] = "-";
+                }
+            }
+        }
+        // TODO: PRINT BOARD
+    }
 }
