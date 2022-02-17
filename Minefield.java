@@ -6,12 +6,14 @@ public class Minefield {
     int numMines;
     int size;
     String[][] minefield;
+    String[][] dug;
 
     public Minefield(int size, int numMines) {
         this.size = size;
         this.numMines = numMines;
         this.minefield = newMinefield();
         this.assignValues();
+        String[][] dug;
     }
 
     public String[][] newMinefield() {
@@ -56,7 +58,20 @@ public class Minefield {
         return String.valueOf(numNeighborMines);
     }
 
-    public void dig(int row, int col) {
-
+    public boolean dig(int row, int col) {
+        // return False = BOMB! game over
+        if (this.minefield[row][col] == "X") {
+            return false;
+        } else if (this.minefield[row][col] != "0") {
+            return true;
+        } else {
+            for (int r = Math.max(0, row - 1); r <= Math.min(this.size - 1, row + 1); r++) {
+                for (int c = Math.max(0, col - 1); c <= Math.min(this.size - 1, col + 1); c++) {
+                    this.dig(r, c);
+                }
+            }
+            return true;
+        }
     }
+
 }
