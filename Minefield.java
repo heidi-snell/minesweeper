@@ -1,5 +1,6 @@
 import java.util.*;
-=
+import java.util.concurrent.ThreadLocalRandom;
+
 public class Minefield {
     int numMines;
     int size;
@@ -77,14 +78,13 @@ public class Minefield {
         String[][] visibleBoard = new String[this.size][this.size];
         for (int row = 0; row < this.size; row++) {
             for (int col = 0; col < this.size; col++) {
-                if (this.dug.contains(row + "," + col) == true){
+                if (this.dug.contains(row + "," + col) == true) {
                     visibleBoard[row][col] = this.minefield[row][col];
-                }
-                else {
+                } else {
                     visibleBoard[row][col] = "-";
                 }
             }
         }
-        // TODO: PRINT BOARD
+        return visibleBoard;
     }
 }
