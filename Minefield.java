@@ -12,7 +12,7 @@ public class Minefield {
         this.numMines = numMines;
         this.minefield = newMinefield();
         this.assignValues();
-        Set<String> dug = new HashSet<String>();
+        Set<String> dug = new HashSet<String>(); // remove this?
     }
 
     public String[][] newMinefield() {
