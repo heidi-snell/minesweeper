@@ -7,7 +7,15 @@ public class Minefield {
     String[][] minefield;
     Set<String> dug;
 
-    public Minefield(int size, int numMines) {
+    public Minefield() {
+
+        Scanner in = new Scanner(System.in);
+        System.out.println("Enter desired minefield size: ");
+        int size = in.nextInt();
+        System.out.println("Enter desired number of mines: ");
+        int numMines = in.nextInt();
+        in.close();
+
         this.size = size;
         this.numMines = numMines;
         this.minefield = newMinefield();
