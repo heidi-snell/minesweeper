@@ -7,23 +7,16 @@ public class Minefield {
     String[][] minefield;
     Set<String> dug;
 
-    public Minefield() {
-
-        Scanner in = new Scanner(System.in);
-        System.out.println("Enter desired minefield size: ");
-        int size = in.nextInt();
-        System.out.println("Enter desired number of mines: ");
-        int numMines = in.nextInt();
-        in.close();
-
+    public Minefield(int size, int numMines) {
         this.size = size;
         this.numMines = numMines;
         this.minefield = newMinefield();
         this.assignValues();
-        Set<String> dug = new HashSet<String>(); // remove this?
     }
 
     public String[][] newMinefield() {
+        Set<String> dug = new HashSet<String>();
+        this.dug = dug;
         String[][] minefield = new String[this.size][this.size];
         int minesPlated = 0;
         placingMines: while (minesPlated < this.numMines) {
