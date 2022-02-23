@@ -8,8 +8,10 @@ public class Main {
         Scanner input = new Scanner(System.in);
         System.out.println("Enter desired minefield size: ");
         int size = input.nextInt();
+        // input.nextLine();
         System.out.println("Enter desired number of mines: ");
         int numMines = input.nextInt();
+        // input.nextLine();
         input.close();
 
         // make new minefield
@@ -19,7 +21,11 @@ public class Main {
         Scanner digScanner = new Scanner(System.in);
         while (minefield.dug.size() < (Math.pow(size, 2) - numMines)) {
             System.out.println("Where do you want to dig next? Input as row, col: ");
+            // digScanner.nextLine();
             String userInputString = digScanner.nextLine();
+
+            // TEST
+            System.out.println("you entered: " + userInputString);
 
             int[] userInput = Arrays.stream(userInputString.split(",")).mapToInt(Integer::parseInt).toArray();
 
