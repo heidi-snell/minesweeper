@@ -20,6 +20,7 @@ public class Main {
             input.nextLine();
             String userInputString = input.nextLine();
 
+            // TODO
             int[] userInput = Arrays.stream(userInputString.split(",")).mapToInt(Integer::parseInt).toArray();
 
             System.out.println(userInput);
