@@ -13,23 +13,23 @@ public class Main {
 
         // make new minefield
         Minefield minefield = new Minefield(size, numMines);
-        boolean alive = true;
+        boolean safe = true;
 
-        minefield.printNakedBoard();
-        System.exit(0);
+        // minefield.printNakedBoard();
+        // System.exit(0);
 
         // keep digging until win or hit a bomb
         while (minefield.dug.size() < (Math.pow(size, 2) - numMines)) {
             scanner.nextLine();
-            System.out.println("Where do you want to dig next? Input as row, col: ");
+            System.out.println("Where do you want to dig next? Input as row,col: ");
             String userInputString = scanner.nextLine();
 
             String[] splitArray = userInputString.split(",");
             int row = Integer.parseInt(splitArray[0]);
             int col = Integer.parseInt(splitArray[1]);
 
-            alive = minefield.dig(row, col);
-            if (!alive) {
+            safe = minefield.dig(row, col);
+            if (!safe) {
                 System.out.println("XXX YOU DIED XXX");
                 System.exit(0);
             }

@@ -59,18 +59,23 @@ public class Minefield {
     }
 
     public boolean dig(int row, int col) {
-        this.dug.add(row + "," + col);
-        // return False = BOMB! game over
-        if (this.minefield[row][col] == "X") {
-            return false;
-        } else if (this.minefield[row][col] != "0") {
+        if (this.dug.contains(row + "," + col) == true) {
             return true;
-        } else {
+        }
+        this.dug.add(row + "," + col);
+
+        if (this.minefield[row][col] == "X") { // BOMB!
+            return false;
+        }
+        if (this.minefield[row][col].equals("0")) { // keep digging
             for (int r = Math.max(0, row - 1); r <= Math.min(this.size - 1, row + 1); r++) {
                 for (int c = Math.max(0, col - 1); c <= Math.min(this.size - 1, col + 1); c++) {
                     this.dig(r, c);
                 }
             }
+            return true;
+        } else { // stop digging
+            System.out.println("ended here");
             return true;
         }
     }
