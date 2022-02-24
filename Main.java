@@ -16,17 +16,17 @@ public class Main {
 
         // keep digging until win or hit a bomb
         while (minefield.dug.size() < (Math.pow(size, 2) - numMines)) {
-            System.out.println("Where do you want to dig next? Input as row, col: ");
             scanner.nextLine();
+            System.out.println("Where do you want to dig next? Input as row, col: ");
             String userInputString = scanner.nextLine();
 
             String[] splitArray = userInputString.split(",");
-            int[] userInput = new int[splitArray.length];
-            for (int i = 0; i < splitArray.length; i++) {
-                userInput[i] = Integer.parseInt(splitArray[i]);
-            }
+            int row = Integer.parseInt(splitArray[0]);
+            int col = Integer.parseInt(splitArray[1]);
 
-            System.out.println(userInput[0] + " " + userInput[1]);
+            minefield.dig(row, col);
+
+            minefield.print();
         }
         scanner.close();
 

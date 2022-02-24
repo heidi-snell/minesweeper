@@ -75,7 +75,7 @@ public class Minefield {
         }
     }
 
-    public String[][] __str__() {
+    public void print() {
         String[][] visibleBoard = new String[this.size][this.size];
         for (int row = 0; row < this.size; row++) {
             for (int col = 0; col < this.size; col++) {
@@ -86,6 +86,8 @@ public class Minefield {
                 }
             }
         }
-        return visibleBoard;
+        for (int i = 0; i < visibleBoard.length; i++) {
+            System.out.println(Arrays.toString(visibleBoard[i]));
+        }
     }
 }
