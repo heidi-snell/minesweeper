@@ -59,6 +59,7 @@ public class Minefield {
     }
 
     public boolean dig(int row, int col) {
+        this.dug.add(row + "," + col);
         // return False = BOMB! game over
         if (this.minefield[row][col] == "X") {
             return false;
@@ -67,7 +68,6 @@ public class Minefield {
         } else {
             for (int r = Math.max(0, row - 1); r <= Math.min(this.size - 1, row + 1); r++) {
                 for (int c = Math.max(0, col - 1); c <= Math.min(this.size - 1, col + 1); c++) {
-                    this.dug.add(row + "," + col);
                     this.dig(r, c);
                 }
             }

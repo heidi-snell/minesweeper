@@ -13,6 +13,7 @@ public class Main {
 
         // make new minefield
         Minefield minefield = new Minefield(size, numMines);
+        boolean alive = true;
 
         // keep digging until win or hit a bomb
         while (minefield.dug.size() < (Math.pow(size, 2) - numMines)) {
@@ -24,7 +25,11 @@ public class Main {
             int row = Integer.parseInt(splitArray[0]);
             int col = Integer.parseInt(splitArray[1]);
 
-            minefield.dig(row, col);
+            alive = minefield.dig(row, col);
+            if (!alive) {
+                System.out.println("XXX YOU DIED XXX");
+                System.exit(0);
+            }
 
             minefield.print();
         }
