@@ -33,10 +33,10 @@ public class Minefield {
     }
 
     public void assignValues() {
-        labeling: for (int row = 0; row < this.size; row++) {
+        for (int row = 0; row < this.size; row++) {
             for (int col = 0; col < this.size; col++) {
                 if (this.minefield[row][col] == "X") {
-                    continue labeling;
+                    continue;
                 } else {
                     this.minefield[row][col] = getNumNeighborMines(row, col);
                 }
@@ -46,10 +46,10 @@ public class Minefield {
 
     public String getNumNeighborMines(int row, int col) {
         int numNeighborMines = 0;
-        tallying: for (int r = Math.max(0, row - 1); r <= Math.min(this.size - 1, row + 1); r++) {
+        for (int r = Math.max(0, row - 1); r <= Math.min(this.size - 1, row + 1); r++) {
             for (int c = Math.max(0, col - 1); c <= Math.min(this.size - 1, col + 1); c++) {
                 if (r == row && c == col) {
-                    continue tallying;
+                    continue;
                 } else if (this.minefield[r][c] == "X") {
                     numNeighborMines++;
                 }
