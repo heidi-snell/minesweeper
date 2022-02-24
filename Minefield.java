@@ -75,6 +75,12 @@ public class Minefield {
         }
     }
 
+    public void printNakedBoard() {
+        for (int i = 0; i < this.size; i++) {
+            System.out.println(Arrays.toString(this.minefield[i]));
+        }
+    }
+
     public void print() {
         String[][] visibleBoard = new String[this.size][this.size];
         for (int row = 0; row < this.size; row++) {

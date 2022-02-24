@@ -15,6 +15,9 @@ public class Main {
         Minefield minefield = new Minefield(size, numMines);
         boolean alive = true;
 
+        minefield.printNakedBoard();
+        System.exit(0);
+
         // keep digging until win or hit a bomb
         while (minefield.dug.size() < (Math.pow(size, 2) - numMines)) {
             scanner.nextLine();
