@@ -37,6 +37,7 @@ public class Main {
             minefield.print();
         }
         scanner.close();
-
+        System.out.println("YOU WIN! :)");
+        System.exit(0);
     }
 }
