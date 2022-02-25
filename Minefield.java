@@ -75,7 +75,6 @@ public class Minefield {
             }
             return true;
         } else { // stop digging
-            System.out.println("ended here");
             return true;
         }
     }

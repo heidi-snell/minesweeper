@@ -28,13 +28,16 @@ public class Main {
             int row = Integer.parseInt(splitArray[0]);
             int col = Integer.parseInt(splitArray[1]);
 
-            safe = minefield.dig(row, col);
-            if (!safe) {
-                System.out.println("XXX YOU DIED XXX");
-                System.exit(0);
+            if (row >= size || col >= size) {
+                System.out.println("Input " + row + "," + col + " is outside of board size " + size + "," + size);
+            } else {
+                safe = minefield.dig(row, col);
+                if (!safe) {
+                    System.out.println("XXX YOU DIED XXX");
+                    System.exit(0);
+                }
+                minefield.print();
             }
-
-            minefield.print();
         }
         scanner.close();
         System.out.println("YOU WIN! :)");
